@@ -6,11 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Feeling {
-
-    @Id
-    @GeneratedValue
-    private UUID id;
+public class Feeling extends AbstractEntity {
 
     private String name;
     private String category;
@@ -26,9 +22,6 @@ public class Feeling {
 
     public Feeling() {}
 
-    public UUID getId() {
-        return id;
-    }
 
     public String getName() {
         return name;

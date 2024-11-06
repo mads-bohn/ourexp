@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Entry {
+public class Entry extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private UUID id;
     private String text;
 
     @ManyToMany(cascade = { CascadeType.ALL })
@@ -28,9 +25,6 @@ public class Entry {
 
     public Entry() {}
 
-    public UUID getId() {
-        return id;
-    }
 
     public String getText() {
         return text;
