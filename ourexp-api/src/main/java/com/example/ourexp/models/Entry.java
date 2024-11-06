@@ -18,8 +18,7 @@ public class Entry {
         this.text = text;
     }
 
-    public Entry() {
-    }
+    public Entry() {}
 
     public UUID getId() {
         return id;
