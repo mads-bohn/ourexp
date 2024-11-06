@@ -1,9 +1,8 @@
 package com.example.ourexp.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,9 +15,13 @@ public class Feeling {
     private String name;
     private String category;
 
-    public Feeling(String name, String category) {
+    @ManyToMany(mappedBy = "feelings")
+    private List<Entry> entries;
+
+    public Feeling(String name, String category, List<Entry> entries) {
         this.name = name;
         this.category = category;
+        this.entries = entries;
     }
 
     public Feeling() {}
@@ -41,5 +44,13 @@ public class Feeling {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public List<Entry> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(List<Entry> entries) {
+        this.entries = entries;
     }
 }

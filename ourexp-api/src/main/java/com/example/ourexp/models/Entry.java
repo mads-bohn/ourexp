@@ -1,9 +1,8 @@
 package com.example.ourexp.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,8 +13,17 @@ public class Entry {
     private UUID id;
     private String text;
 
-    public Entry(String text) {
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "Entry_Feeling",
+            joinColumns = { @JoinColumn(name = "entry_id") },
+            inverseJoinColumns = { @JoinColumn(name = "feeling_id") }
+    )
+    private List<Feeling> feelings;
+
+    public Entry(String text, List<Feeling> feelings) {
         this.text = text;
+        this.feelings = feelings;
     }
 
     public Entry() {}
@@ -30,5 +38,13 @@ public class Entry {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public List<Feeling> getFeelings() {
+        return feelings;
+    }
+
+    public void setFeelings(List<Feeling> feelings) {
+        this.feelings = feelings;
     }
 }
