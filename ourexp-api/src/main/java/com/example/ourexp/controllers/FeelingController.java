@@ -19,11 +19,6 @@ public class FeelingController {
     @Autowired
     private FeelingRepository feelingRepository;
 
-    // retrieves all feelings via GET request to localhost:8080/feeling
-//    @GetMapping("/getAll")
-//    public Iterable<Feeling> getAllFeelings() {
-//        return feelingRepository.findAll();
-//    }
 
     // adds new feelings via POST request to localhost:8080/feeling
     @PostMapping
