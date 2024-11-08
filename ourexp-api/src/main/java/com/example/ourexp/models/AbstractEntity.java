@@ -5,15 +5,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 

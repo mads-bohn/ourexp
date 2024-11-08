@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface FeelingRepository extends CrudRepository<Feeling, UUID> {
+public interface FeelingRepository extends CrudRepository<Feeling, Long> {
 }
