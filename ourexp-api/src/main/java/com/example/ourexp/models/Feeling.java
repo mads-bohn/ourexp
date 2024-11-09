@@ -7,14 +7,16 @@ import java.util.UUID;
 
 @Entity
 public class Feeling extends AbstractEntity {
+    public enum Category {
+        HAPPY, SAD, SURPRISED, DOWN, DISGUSTED, ANGRY, FEARFUL
+    }
 
     private String name;
-    private String category;
-
+    private Category category;
     @ManyToMany(mappedBy = "feelings")
     private List<Entry> entries;
 
-    public Feeling(String name, String category, List<Entry> entries) {
+    public Feeling(String name, Category category, List<Entry> entries) {
         this.name = name;
         this.category = category;
         this.entries = entries;
@@ -31,11 +33,11 @@ public class Feeling extends AbstractEntity {
         this.name = name;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
