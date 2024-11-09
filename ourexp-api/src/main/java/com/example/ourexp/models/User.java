@@ -1,6 +1,6 @@
 package com.example.ourexp.models;
 
-import jarkata.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class User extends AbstractEntity {
