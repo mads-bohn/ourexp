@@ -10,7 +10,7 @@ public class Entry extends AbstractEntity {
 
     private String text;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.MERGE })
     @JoinTable(
             name = "Entry_Feeling",
             joinColumns = { @JoinColumn(name = "entry_id") },
