@@ -1,5 +1,6 @@
 package com.example.ourexp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class Feeling extends AbstractEntity {
 
     private String name;
     private Category category;
+    @JsonIgnore
     @ManyToMany(mappedBy = "feelings")
     private List<Entry> entries;
 
