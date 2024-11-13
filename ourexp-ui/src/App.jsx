@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Entries from './pages/Entries';
 import Home from './pages/Home';
 import Submit from './pages/Submit';
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -18,6 +19,10 @@ function App() {
     {
       path: "/submit",
       element: <Submit />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
     }
   ]);
 
