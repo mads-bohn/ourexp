@@ -1,7 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
-    <div>Hello, home!</div>
+    <div>
+      <Navbar />
+      <p>Hello, homepage!</p>
+    </div>
   )
 }
