@@ -43,4 +43,11 @@ public class FeelingController {
         return ResponseEntity.ok(feeling);
     }
 
+    // gets feelings by category via GET request to localhost:8080/feeling/category/{category}
+    @GetMapping("category/{category}")
+    public ResponseEntity getFeelingsByCategory(@PathVariable Feeling.Category category) {
+        List<Feeling> feelings = feelingRepository.findByCategory(category);
+        return ResponseEntity.ok(feelings);
+    }
+
 }
