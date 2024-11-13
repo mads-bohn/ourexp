@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function Entries() {
   return (
-    <div>Hello, entries!</div>
+    <div>
+      <Navbar />
+      <p>Hello, entries!</p>
+    </div>
   )
 }
