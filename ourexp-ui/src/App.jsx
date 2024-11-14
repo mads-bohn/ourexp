@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Entries from './pages/Entries';
 import Home from './pages/Home';
 import Submit from './pages/Submit';
-import Profile from './pages/Profile';
+import Account from './pages/Account';
 
 function App() {
 
@@ -21,8 +21,8 @@ function App() {
       element: <Submit />,
     },
     {
-      path: "/profile",
-      element: <Profile />,
+      path: "/account",
+      element: <Account />,
     }
   ]);
 
