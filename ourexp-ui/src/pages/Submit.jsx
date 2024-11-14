@@ -1,7 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 export default function Submit() {
   return (
-    <div>Hello, submission form!</div>
+    <div>
+      <Navbar />
+      <p>Hello, entry form!</p>
+    </div>
   )
 }
