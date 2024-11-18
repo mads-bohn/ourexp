@@ -2,14 +2,16 @@ package com.example.ourexp.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 public class Entry extends AbstractEntity {
 
     private String text;
     private String title;
+    private LocalDateTime time = LocalDateTime.now();
 
     @ManyToMany(cascade = { CascadeType.MERGE })
     @JoinTable(
@@ -19,14 +21,14 @@ public class Entry extends AbstractEntity {
     )
     private List<Feeling> feelings;
 
-    public Entry(String text, String title, List<Feeling> feelings) {
+    public Entry(String text, String title, List<Feeling> feelings, LocalDateTime time) {
         this.text = text;
         this.title = title;
         this.feelings = feelings;
+        this.time = time;
     }
 
     public Entry() {}
-
 
     public String getText() {
         return text;
@@ -50,5 +52,13 @@ public class Entry extends AbstractEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
     }
 }
