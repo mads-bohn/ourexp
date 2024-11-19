@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function SubmissionForm({categories}) {
+export default function SubmissionForm({categories, feelings}) {
+
+    const [selectedCategory, setSelectedCategory] = useState();
+    const [selectedFeeling, setSelectedFeeling] = useState();
 
     const categoryButtons = categories.map(category =>
-        <button>{category}</button>
+        <button onClick={() => {
+            setSelectedCategory(category);
+        }}
+            key={category}>{category}</button>
     )
-    
+
+    const feelingButtons = feelings.map(feeling =>
+        <button>{feeling.name}</button>
+    )
+
   return (
-    <div>{categoryButtons}</div>
+    <div>
+        <p>{selectedCategory}</p>
+        {categoryButtons}
+    </div>
   )
 }
