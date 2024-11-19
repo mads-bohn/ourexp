@@ -33,6 +33,13 @@ public class FeelingController {
         return ResponseEntity.ok(feelings);
     }
 
+    // gets category values via GET request to localhost:8080/feeling/getCategories
+    @GetMapping("/getCategories")
+    public ResponseEntity getAllCategories() {
+        Feeling.Category[] categories = Feeling.Category.values();
+        return ResponseEntity.ok(categories);
+    }
+
     // gets feeling by id via GET request to localhost:8080/feeling/id
     @GetMapping("/{id}")
     public ResponseEntity getFeelingById(@PathVariable Long id) {
