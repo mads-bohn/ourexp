@@ -1,19 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import SubmissionForm from '../components/submit/SubmissionForm'
-
-const feelingCategories = [
-  "HAPPY",
-  "SAD",
-  "SURPRISED",
-  "DOWN",
-  "DISGUSTED",
-  "ANGRY",
-  "FEARFUL"
-]
 
 const feelings = [
-  [
     {
         "id": 1,
         "name": "playful",
@@ -55,13 +42,15 @@ const feelings = [
         "category": "SURPRISED"
     }
 ]
-]
 
-export default function Submit() {
+export default function FeelingSelector({category}) {
+
+
+    // if feeling.category matches category prop, push to feelingsList
+
+    // map feelingsList into buttons
+
   return (
-    <div>
-      <Navbar />
-      <SubmissionForm categories={feelingCategories}/>
-    </div>
+    <div>FeelingSelector</div>
   )
 }

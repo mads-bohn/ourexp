@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import FeelingSelector from './FeelingSelector';
 
-export default function SubmissionForm({categories, feelings}) {
+export default function SubmissionForm({categories}) {
 
     const [selectedCategory, setSelectedCategory] = useState();
-    const [selectedFeeling, setSelectedFeeling] = useState();
+
 
     const categoryButtons = categories.map(category =>
         <button onClick={() => {
@@ -12,14 +13,13 @@ export default function SubmissionForm({categories, feelings}) {
             key={category}>{category}</button>
     )
 
-    const feelingButtons = feelings.map(feeling =>
-        <button>{feeling.name}</button>
-    )
+
 
   return (
     <div>
         <p>{selectedCategory}</p>
         {categoryButtons}
+        <FeelingSelector category={selectedCategory} />
     </div>
   )
 }
