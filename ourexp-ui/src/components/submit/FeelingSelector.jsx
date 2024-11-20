@@ -1,56 +1,32 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const feelings = [
-    {
-        "id": 1,
-        "name": "playful",
-        "category": "HAPPY"
-    },
-    {
-        "id": 2,
-        "name": "content",
-        "category": "HAPPY"
-    },
-    {
-        "id": 3,
-        "name": "confident",
-        "category": "HAPPY"
-    },
-    {
-        "id": 4,
-        "name": "lonely",
-        "category": "SAD"
-    },
-    {
-        "id": 5,
-        "name": "hopeless",
-        "category": "SAD"
-    },
-    {
-        "id": 6,
-        "name": "guilty",
-        "category": "SAD"
-    },
-    {
-        "id": 7,
-        "name": "amazed",
-        "category": "SURPRISED"
-    },
-    {
-        "id": 8,
-        "name": "confused",
-        "category": "SURPRISED"
-    }
-]
 
 export default function FeelingSelector({category}) {
 
+  const [feelingsList, setFeelingsList] = useState([]);
 
-    // if feeling.category matches category prop, push to feelingsList
+  function getFeelings() {
+    axios.get(`http://localhost:8080/feeling/category/${category}`)
+        .then(response => {
+            setFeelingsList(response.data);
+        })
+        .catch(error => {
+            console.error("Error fetching feelings:", error);
+        });
+  }
 
-    // map feelingsList into buttons
+  useEffect(() => {
+    getFeelings();
+  }, [category]);
+
+    const feelingButtons = feelingsList.map(feeling =>
+      <button>{feeling.name}</button>
+    )
+
 
   return (
-    <div>FeelingSelector</div>
+    <div>{feelingButtons}</div>
   )
 }
