@@ -21,6 +21,10 @@ public class Entry extends AbstractEntity {
     )
     private List<Feeling> feelings;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Entry(String text, String title, List<Feeling> feelings, LocalDateTime time) {
         this.text = text;
         this.title = title;
