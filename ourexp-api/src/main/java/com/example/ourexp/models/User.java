@@ -2,7 +2,7 @@ package com.example.ourexp.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.List;
 
 @Entity
@@ -10,16 +10,18 @@ public class User extends AbstractEntity {
 
     private String email;
     private String username;
-    private String password;
+    private String encodedPassword;
     @OneToMany(mappedBy = "user")
     private List<Entry> entries;
 
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     public User() {}
 
-    public User(String email, String username, String password, List<Entry> entries) {
+    public User(String email, String username, String encodedPassword, List<Entry> entries) {
         this.email = email;
         this.username = username;
-        this.password = password;
+        this.encodedPassword = encoder.encode(encodedPassword);
         this.entries = entries;
     }
 
@@ -39,12 +41,16 @@ public class User extends AbstractEntity {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEncodedPassword() {
+        return encodedPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEncodedPassword(String encodedPassword) {
+        this.encodedPassword = encoder.encode(encodedPassword);
+    }
+
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, this.encodedPassword);
     }
 
     public List<Entry> getEntries() {
