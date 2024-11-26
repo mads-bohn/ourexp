@@ -1,12 +1,17 @@
 package com.example.ourexp.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
 import java.util.List;
 
+@Entity
 public class User extends AbstractEntity {
 
     private String email;
     private String username;
     private String password;
+    @OneToMany(mappedBy = "user")
     private List<Entry> entries;
 
     public User() {}
