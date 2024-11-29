@@ -16,11 +16,31 @@ const testEntry =     {
   ]
 }
 
+const testEntryTwo =  {
+  "id": 252,
+  "text": "He's so talented and silly!",
+  "title": "I love my cat",
+  "time": "2024-11-29T12:43:46.982854",
+  "feelings": [
+      {
+          "id": 1,
+          "name": "playful",
+          "category": "HAPPY"
+      },
+      {
+          "id": 7,
+          "name": "amazed",
+          "category": "SURPRISED"
+      }
+  ]
+}
+
 export default function Entries() {
   return (
     <div>
       <Navbar />
       <Entry entryObject={testEntry} />
+      <Entry entryObject={testEntryTwo} />
     </div>
   )
 }
