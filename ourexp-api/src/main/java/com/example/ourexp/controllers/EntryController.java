@@ -53,6 +53,21 @@ public class EntryController {
         return ResponseEntity.ok(entries);
     }
 
+    // updates entries by id via PUT request to localhost:8080/entry/id
+    @PutMapping("/{id}")
+    public ResponseEntity updateEntry(@PathVariable Long id, @RequestBody Entry entry) {
+        if (!entryRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        } else {
+            Entry existingEntry = entryRepository.findById(id).get();
+            existingEntry.setText(entry.getText());
+            existingEntry.setTitle(entry.getTitle());
+            existingEntry.setFeelings(entry.getFeelings());
+            Entry updatedEntry = entryRepository.save(existingEntry);
+            return ResponseEntity.ok(updatedEntry);
+        }
+    }
+
     // deletes entries by id via DELETE request to localhost:8080/entry/id
     @DeleteMapping("/{id}")
     public ResponseEntity deleteEntry(@PathVariable Long id) {
