@@ -13,7 +13,7 @@ public class Entry extends AbstractEntity {
     private String title;
     private LocalDateTime time = LocalDateTime.now();
 
-    @ManyToMany(cascade = { CascadeType.MERGE })
+    @ManyToMany
     @JoinTable(
             name = "Entry_Feeling",
             joinColumns = { @JoinColumn(name = "entry_id") },
