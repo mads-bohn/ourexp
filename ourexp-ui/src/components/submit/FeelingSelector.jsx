@@ -7,6 +7,7 @@ export default function FeelingSelector({category}) {
 
   const [feelingsList, setFeelingsList] = useState([]);
 
+  // gets feelings from backend with category passed as props
   function getFeelings() {
     axios.get(`http://localhost:8080/feeling/category/${category}`)
         .then(response => {
@@ -17,10 +18,12 @@ export default function FeelingSelector({category}) {
         });
   }
 
+  // gets feelings when category is changed
   useEffect(() => {
     getFeelings();
   }, [category]);
 
+  // maps feelingsList to buttons
     const feelingButtons = feelingsList.map(feeling =>
       <button>{feeling.name}</button>
     )

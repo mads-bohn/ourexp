@@ -11,7 +11,7 @@ const feelingCategories = [
   "ANGRY",
   "FEARFUL"
 ]
-
+ 
 const feelings = [
   [
     {
