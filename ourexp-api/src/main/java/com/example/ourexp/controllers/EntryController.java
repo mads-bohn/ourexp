@@ -52,4 +52,15 @@ public class EntryController {
         List<Entry> entries = entryRepository.findByFeelingsContaining(feeling);
         return ResponseEntity.ok(entries);
     }
+
+    // deletes entries by id via DELETE request to localhost:8080/entry/id
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteEntry(@PathVariable Long id) {
+        Optional<Entry> entry = entryRepository.findById(id);
+        if (entry.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        entryRepository.deleteById(id);
+        return ResponseEntity.ok("Entry deleted");
+    }
 }
