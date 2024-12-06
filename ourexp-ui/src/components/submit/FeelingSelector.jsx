@@ -60,8 +60,20 @@ export default function FeelingSelector({category}) {
         key={feeling.name}>{feeling.name}</button>
     )
 
-
+if (!selectedFeeling) {
   return (
-    <div>{feelingButtons}</div>
+    <div>
+      {feelingButtons}
+    </div>
   )
+} else {
+  return (
+    <div>
+      {feelingButtons}
+      <p>What has you feeling {selectedFeeling.toLowerCase()}?</p>
+      <textarea></textarea>
+    </div>
+  )
+}
+  
 }
