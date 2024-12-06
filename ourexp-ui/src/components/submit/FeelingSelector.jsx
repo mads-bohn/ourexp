@@ -260,8 +260,20 @@ export default function FeelingSelector({category}) {
 
   // sets feelingsList when category is changed
   useEffect(() => {
-    if (category == HAPPY) {
+    if (category == "HAPPY") {
       setFeelingsList(happyFeelings);
+    } else if (category == "SAD") {
+      setFeelingsList(sadFeelings);
+    } else if (category == "SURPRISED") {
+      setFeelingsList(surprisedFeelings);
+    } else if (category == "DOWN") {
+      setFeelingsList(downFeelings);
+    } else if (category == "DISGUSTED") {
+      setFeelingsList(disgustedFeelings);
+    } else if (category == "ANGRY") {
+      setFeelingsList(angryFeelings);
+    } else if (category == "FEARFUL") {
+      setFeelingsList(fearfulFeelings);
     }
   }, [category]);
 

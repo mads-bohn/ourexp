@@ -18,7 +18,6 @@ export default function SubmissionForm({categories}) {
 
   return (
     <div>
-        <p>{selectedCategory}</p>
         {categoryButtons}
         <FeelingSelector category={selectedCategory}/>
     </div>
