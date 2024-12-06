@@ -1,0 +1,307 @@
+[
+    {
+        "id": 1,
+        "name": "Playful",
+        "category": "HAPPY"
+    },
+    {
+        "id": 2,
+        "name": "Content",
+        "category": "HAPPY"
+    },
+    {
+        "id": 3,
+        "name": "Interested",
+        "category": "HAPPY"
+    },
+    {
+        "id": 4,
+        "name": "Proud",
+        "category": "HAPPY"
+    },
+    {
+        "id": 5,
+        "name": "Confident",
+        "category": "HAPPY"
+    },
+    {
+        "id": 6,
+        "name": "Courageous",
+        "category": "HAPPY"
+    },
+    {
+        "id": 7,
+        "name": "Joyful",
+        "category": "HAPPY"
+    },
+    {
+        "id": 8,
+        "name": "Grateful",
+        "category": "HAPPY"
+    },
+    {
+        "id": 9,
+        "name": "Trusting",
+        "category": "HAPPY"
+    },
+    {
+        "id": 10,
+        "name": "Optimistic",
+        "category": "HAPPY"
+    },
+    {
+        "id": 11,
+        "name": "Inspired",
+        "category": "HAPPY"
+    },
+    {
+        "id": 12,
+        "name": "Comfortable",
+        "category": "HAPPY"
+    },
+    {
+        "id": 13,
+        "name": "Lonely",
+        "category": "SAD"
+    },
+    {
+        "id": 14,
+        "name": "Vulnerable",
+        "category": "SAD"
+    },
+    {
+        "id": 15,
+        "name": "Guilty",
+        "category": "SAD"
+    },
+    {
+        "id": 16,
+        "name": "Hurt",
+        "category": "SAD"
+    },
+    {
+        "id": 17,
+        "name": "Empty",
+        "category": "SAD"
+    },
+    {
+        "id": 18,
+        "name": "Hopeless",
+        "category": "SAD"
+    },
+    {
+        "id": 19,
+        "name": "Disheartened",
+        "category": "SAD"
+    },
+    {
+        "id": 20,
+        "name": "Disconnected",
+        "category": "SAD"
+    },
+    {
+        "id": 21,
+        "name": "Excited",
+        "category": "SURPRISED"
+    },
+    {
+        "id": 22,
+        "name": "Amazed",
+        "category": "SURPRISED"
+    },
+    {
+        "id": 23,
+        "name": "Confused",
+        "category": "SURPRISED"
+    },
+    {
+        "id": 24,
+        "name": "Shocked",
+        "category": "SURPRISED"
+    },
+    {
+        "id": 25,
+        "name": "Lost",
+        "category": "SURPRISED"
+    },
+    {
+        "id": 26,
+        "name": "Alarmed",
+        "category": "SURPRISED"
+    },
+    {
+        "id": 27,
+        "name": "Tired",
+        "category": "DOWN"
+    },
+    {
+        "id": 28,
+        "name": "Upset",
+        "category": "DOWN"
+    },
+    {
+        "id": 29,
+        "name": "Overwhelmed",
+        "category": "DOWN"
+    },
+    {
+        "id": 30,
+        "name": "Bored",
+        "category": "DOWN"
+    },
+    {
+        "id": 31,
+        "name": "Stressed",
+        "category": "DOWN"
+    },
+    {
+        "id": 32,
+        "name": "Bored",
+        "category": "DOWN"
+    },
+    {
+        "id": 33,
+        "name": "Exhausted",
+        "category": "DOWN"
+    },
+    {
+        "id": 34,
+        "name": "Uncomfortable",
+        "category": "DOWN"
+    },
+    {
+        "id": 35,
+        "name": "Disappointed",
+        "category": "DISGUSTED"
+    },
+    {
+        "id": 36,
+        "name": "Embarassed",
+        "category": "DISGUSTED"
+    },
+    {
+        "id": 37,
+        "name": "Disapproving",
+        "category": "DISGUSTED"
+    },
+    {
+        "id": 38,
+        "name": "Repelled",
+        "category": "DISGUSTED"
+    },
+    {
+        "id": 39,
+        "name": "Awful",
+        "category": "DISGUSTED"
+    },
+    {
+        "id": 40,
+        "name": "Horrified",
+        "category": "DISGUSTED"
+    },
+    {
+        "id": 41,
+        "name": "Mad",
+        "category": "ANGRY"
+    },
+    {
+        "id": 42,
+        "name": "Hostile",
+        "category": "ANGRY"
+    },
+    {
+        "id": 43,
+        "name": "Critical",
+        "category": "ANGRY"
+    },
+    {
+        "id": 44,
+        "name": "Frustrated",
+        "category": "ANGRY"
+    },
+    {
+        "id": 45,
+        "name": "Bitter",
+        "category": "ANGRY"
+    },
+    {
+        "id": 46,
+        "name": "Resentful",
+        "category": "ANGRY"
+    },
+    {
+        "id": 47,
+        "name": "Jealous",
+        "category": "ANGRY"
+    },
+    {
+        "id": 48,
+        "name": "Furious",
+        "category": "ANGRY"
+    },
+    {
+        "id": 49,
+        "name": "Annoyed",
+        "category": "ANGRY"
+    },
+    {
+        "id": 50,
+        "name": "Distant",
+        "category": "ANGRY"
+    },
+    {
+        "id": 51,
+        "name": "Afraid",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 52,
+        "name": "Anxious",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 53,
+        "name": "Worried",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 54,
+        "name": "Insecure",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 55,
+        "name": "Weak",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 56,
+        "name": "Threatened",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 57,
+        "name": "Nervous",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 58,
+        "name": "Restless",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 59,
+        "name": "Tense",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 60,
+        "name": "Suspicious",
+        "category": "FEARFUL"
+    },
+    {
+        "id": 61,
+        "name": "Dreadful",
+        "category": "FEARFUL"
+    }
+]
