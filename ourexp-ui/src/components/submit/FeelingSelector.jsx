@@ -63,15 +63,19 @@ export default function FeelingSelector({category}) {
 if (!selectedFeeling) {
   return (
     <div>
+      <p>Dig a little deeper.</p>
       {feelingButtons}
     </div>
   )
 } else {
   return (
     <div>
+      <p>Dig a little deeper.</p>
       {feelingButtons}
       <p>What has you feeling {selectedFeeling.toLowerCase()}?</p>
-      <textarea></textarea>
+      <textarea id='text' name='text' rows={10} cols={50}></textarea>
+      <br />
+      <button>Submit</button>
     </div>
   )
 }
