@@ -53,29 +53,35 @@ export default function FeelingSelector({category}) {
   }, [category]);
 
   // maps feelingsList to buttons
-    const feelingButtons = feelingsList.map(feeling =>
-      <button onClick={() => {
+    const feelingButtons = 
+    feelingsList.map(feeling =>
+      <button 
+        className='bg-indigo-800 text-white m-1'
+        onClick={() => {
           setSelectedFeeling(feeling.name);
         }}
         key={feeling.name}>{feeling.name}</button>
     )
 
-if (!selectedFeeling) {
+if (!category) {
+  return (<></>);
+}
+else if (!selectedFeeling) {
   return (
     <div>
-      <p>Dig a little deeper.</p>
+      <p className='text-xl text-left'>Dig a little deeper.</p>
       {feelingButtons}
     </div>
   )
 } else {
   return (
     <div>
-      <p>Dig a little deeper.</p>
+      <p className='text-xl text-left'>Dig a little deeper.</p>
       {feelingButtons}
-      <p>What has you feeling {selectedFeeling.toLowerCase()}?</p>
+      <p className='text-xl text-left'>What has you feeling {selectedFeeling.toLowerCase()}?</p>
       <textarea id='text' name='text' rows={10} cols={50}></textarea>
       <br />
-      <button>Submit</button>
+      <button className='bg-indigo-800 text-white m-1'>Submit</button>
     </div>
   )
 }

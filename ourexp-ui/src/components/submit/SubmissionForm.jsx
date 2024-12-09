@@ -8,9 +8,11 @@ export default function SubmissionForm({categories}) {
 
     // maps categories passed as prop into list of buttons that set selectedCategory state on click
     const categoryButtons = categories.map(category =>
-        <button onClick={() => {
-            setSelectedCategory(category);
-        }}
+        <button 
+            className='bg-indigo-800 text-white m-1'
+            onClick={() => {
+                setSelectedCategory(category);
+            }}
             key={category}>{category}</button>
     )
 
@@ -18,7 +20,7 @@ export default function SubmissionForm({categories}) {
 
   return (
     <div>
-        <h3>How are you feeling today?</h3>
+        <h3 className='text-xl text-left'>How are you feeling today?</h3>
         {categoryButtons}
         <FeelingSelector category={selectedCategory}/>
     </div>
