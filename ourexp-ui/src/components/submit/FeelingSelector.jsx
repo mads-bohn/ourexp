@@ -41,7 +41,7 @@ export default function FeelingSelector({category}) {
     axios.post('http://localhost:8080/entry', {
       title: title,
       text: text,
-      feelings: selectedFeeling
+      feelings: {id: selectedFeeling.id}
     })
   }
 
@@ -75,7 +75,7 @@ export default function FeelingSelector({category}) {
       <button 
         className='bg-indigo-800 text-white m-1'
         onClick={() => {
-          setSelectedFeeling(feeling.name);
+          setSelectedFeeling(feeling);
         }}
         key={feeling.name}>{feeling.name}</button>
     )
@@ -98,7 +98,7 @@ else if (!selectedFeeling) {
         {feelingButtons}
       </div>
       
-      <p className='text-xl text-left my-4'>What has you feeling {selectedFeeling.toLowerCase()}?</p>
+      <p className='text-xl text-left my-4'>What has you feeling {selectedFeeling.name.toLowerCase()}?</p>
       <div className='divide-y-2 border-solid border-2 border-slate-200'>
         <input type='text' id='title' name='title' value={title} size={75} 
         onChange={(e)=>handleChange(e)}/>
