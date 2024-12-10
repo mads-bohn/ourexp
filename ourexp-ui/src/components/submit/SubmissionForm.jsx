@@ -13,7 +13,7 @@ export default function SubmissionForm({categories}) {
             onClick={() => {
                 setSelectedCategory(category);
             }}
-            key={category}>{category}</button>
+            key={category}>{category.slice(0,1) + category.slice(1).toLowerCase()}</button>
     )
 
 
