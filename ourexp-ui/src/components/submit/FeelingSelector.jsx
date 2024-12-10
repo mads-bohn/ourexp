@@ -30,16 +30,24 @@ const fearfulFeelings = [{"id": 51,"name": "Afraid"},{"id": 52,"name": "Anxious"
 
 export default function FeelingSelector({category}) {
 
-  const [feelingsList, setFeelingsList] = useState([]);
-  const [selectedFeeling, setSelectedFeeling] = useState();
+  const [feelingsList, setFeelingsList] = useState([]);   // list of feelings to display
+  const [selectedFeeling, setSelectedFeeling] = useState(); // user-selected feeling
+  const [entry, setEntry] = useState({title: "", text: ""}); // entry object
 
-  // sends current state to backend in JSON format
-  function handleSubmit() {
+  const{title, text} = entry;
+
+  // sends current state to backend in JSON format on submit
+  const handleSubmit = async () => {
     axios.post('http://localhost:8080/entry', {
-      title: "",
-      text: "",
-      feelings: {}
+      title: title,
+      text: text,
+      feelings: selectedFeeling
     })
+  }
+
+  // updates entry on input change
+  const handleChange =(e)=> {
+      setEntry({...entry,[e.target.name]:e.target.value})
   }
 
   // sets feelingsList when category is changed
@@ -92,14 +100,15 @@ else if (!selectedFeeling) {
       
       <p className='text-xl text-left my-4'>What has you feeling {selectedFeeling.toLowerCase()}?</p>
       <div className='divide-y-2 border-solid border-2 border-slate-200'>
-        <input type='text' id='title' name='title' value={'Title'} size={75} 
-        className=''/>
-        <textarea id='text' name='text' rows={9} cols={75}
-        className=''></textarea>
+        <input type='text' id='title' name='title' value={title} size={75} 
+        onChange={(e)=>handleChange(e)}/>
+        <textarea id='text' name='text' rows={9} cols={75} value={text}
+        onChange={(e)=>handleChange(e)}></textarea>
       </div>
       
       <br />
-      <button className='bg-indigo-800 text-white my-4 absolute right-0'>Submit</button>
+      <button className='bg-indigo-800 text-white my-4 absolute right-0'
+              onSubmit={handleSubmit}>Submit</button>
     </div>
   )
 }
