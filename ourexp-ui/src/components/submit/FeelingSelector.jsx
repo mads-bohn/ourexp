@@ -68,20 +68,23 @@ if (!category) {
 }
 else if (!selectedFeeling) {
   return (
-    <div>
-      <p className='text-xl text-left'>Dig a little deeper.</p>
+    <div className='my-6'>
+      <p className='text-xl text-left my-4'>Dig a little deeper.</p>
       {feelingButtons}
     </div>
   )
 } else {
   return (
-    <div>
-      <p className='text-xl text-left'>Dig a little deeper.</p>
-      {feelingButtons}
-      <p className='text-xl text-left'>What has you feeling {selectedFeeling.toLowerCase()}?</p>
-      <textarea id='text' name='text' rows={10} cols={50}></textarea>
+    <div className='relative'>
+      <div className='my-6'>
+        <p className='text-xl text-left my-4'>Dig a little deeper.</p>
+        {feelingButtons}
+      </div>
+      
+      <p className='text-xl text-left my-4'>What has you feeling {selectedFeeling.toLowerCase()}?</p>
+      <textarea id='text' name='text' rows={9} cols={75}></textarea>
       <br />
-      <button className='bg-indigo-800 text-white m-1'>Submit</button>
+      <button className='bg-indigo-800 text-white my-4 absolute right-0'>Submit</button>
     </div>
   )
 }

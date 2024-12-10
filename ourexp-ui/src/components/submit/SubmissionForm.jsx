@@ -19,8 +19,8 @@ export default function SubmissionForm({categories}) {
 
 
   return (
-    <div>
-        <h3 className='text-xl text-left'>How are you feeling today?</h3>
+    <div className='max-w-[43rem]'>
+        <h3 className='text-xl text-left my-4'>How are you feeling today?</h3>
         {categoryButtons}
         <FeelingSelector category={selectedCategory}/>
     </div>
