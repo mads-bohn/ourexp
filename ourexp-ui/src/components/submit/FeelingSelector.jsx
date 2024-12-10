@@ -33,6 +33,15 @@ export default function FeelingSelector({category}) {
   const [feelingsList, setFeelingsList] = useState([]);
   const [selectedFeeling, setSelectedFeeling] = useState();
 
+  // sends current state to backend in JSON format
+  function handleSubmit() {
+    axios.post('http://localhost:8080/entry', {
+      title: "",
+      text: "",
+      feelings: {}
+    })
+  }
+
   // sets feelingsList when category is changed
   useEffect(() => {
     if (category == "HAPPY") {
@@ -82,7 +91,13 @@ else if (!selectedFeeling) {
       </div>
       
       <p className='text-xl text-left my-4'>What has you feeling {selectedFeeling.toLowerCase()}?</p>
-      <textarea id='text' name='text' rows={9} cols={75}></textarea>
+      <div className='divide-y-2 border-solid border-2 border-slate-200'>
+        <input type='text' id='title' name='title' value={'Title'} size={75} 
+        className=''/>
+        <textarea id='text' name='text' rows={9} cols={75}
+        className=''></textarea>
+      </div>
+      
       <br />
       <button className='bg-indigo-800 text-white my-4 absolute right-0'>Submit</button>
     </div>
