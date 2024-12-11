@@ -13,7 +13,7 @@ const surprisedFeelings = [{"id": 21,"name": "Excited"},{"id": 22,"name": "Amaze
 {"id": 24,"name": "Shocked"},{"id": 25,"name": "Lost"},{"id": 26,"name": "Alarmed"}]
 
 const downFeelings = [{"id": 27,"name": "Tired"},{"id": 28,"name": "Upset"},{"id": 29,"name": "Overwhelmed"},{"id": 30,"name": "Bored"},
-{"id": 31,"name": "Stressed"},{"id": 32,"name": "Bored"},{"id": 33,"name": "Exhausted"},{"id": 34,"name": "Uncomfortable"}]
+{"id": 31,"name": "Stressed"},{"id": 33,"name": "Exhausted"},{"id": 34,"name": "Uncomfortable"}]
 
 const disgustedFeelings = [{"id": 35,"name": "Disappointed"},{"id": 36,"name": "Embarassed"},{"id": 37,"name": "Disapproving"},
 {"id": 38,"name": "Repelled"},{"id": 39,"name": "Awful"},{"id": 40,"name": "Horrified"}]
@@ -108,7 +108,7 @@ else if (!selectedFeeling) {
       
       <br />
       <button className='bg-indigo-800 text-white my-4 absolute right-0'
-              onSubmit={handleSubmit}>Submit</button>
+              onClick={handleSubmit}>Submit</button>
     </div>
   )
 }
