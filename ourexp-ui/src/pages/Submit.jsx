@@ -15,7 +15,7 @@ const feelingCategories = [
 
 export default function Submit() {
   return (
-    <div>
+    <div className='relative top-8'>
       <Navbar />
       <SubmissionForm categories={feelingCategories}/>
     </div>

@@ -51,13 +51,26 @@ const testEntryArray = [
               "category": "SURPRISED"
           }
       ]
-  }
+  },
+  {
+    "id": 1,
+    "text": "I think 2025 is going to be a good year for me.",
+    "title": "New Year",
+    "time": "2024-12-24T15:26:02.21123",
+    "feelings": [
+        {
+            "id": 10,
+            "name": "Optimistic",
+            "category": "HAPPY"
+        }
+    ]
+}
 ]
 
 
 export default function Entries() {
   return (
-    <div>
+    <div className='relative top-8'>
       <Navbar />
 
         <DisplayEntries entryArray={testEntryArray} />
