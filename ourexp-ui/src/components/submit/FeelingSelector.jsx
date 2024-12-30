@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { submitEntry } from '../../services/submitEntry'
 
 const happyFeelings = [{"id": 1, "name": "Playful"},{"id": 2, "name": "Content"},{"id": 3,"name": "Interested"},{"id": 4,"name": "Proud"},
 {"id": 5,"name": "Confident"},{"id": 6,"name": "Courageous"},{"id": 7,"name": "Joyful"},{"id": 8,"name": "Grateful"},{"id": 9,"name": "Trusting"},
@@ -38,11 +39,7 @@ export default function FeelingSelector({category}) {
 
   // sends current state to backend in JSON format on submit
   const handleSubmit = async () => {
-    axios.post('http://localhost:8080/entry', {
-      "title": title,
-      "text": text,
-      "feelings": [{id: selectedFeeling.id}]
-    })
+    submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
   }
 
   // updates entry on input change
