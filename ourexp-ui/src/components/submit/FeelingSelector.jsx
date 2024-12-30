@@ -39,9 +39,9 @@ export default function FeelingSelector({category}) {
   // sends current state to backend in JSON format on submit
   const handleSubmit = async () => {
     axios.post('http://localhost:8080/entry', {
-      title: title,
-      text: text,
-      feelings: {id: selectedFeeling.id}
+      "title": title,
+      "text": text,
+      "feelings": [{id: selectedFeeling.id}]
     })
   }
 
