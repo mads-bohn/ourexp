@@ -13,7 +13,7 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/entries",
+      path: "/entries:feeling",
       element: <Entries />,
     },
     {
