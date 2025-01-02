@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import DisplayEntries from '../components/entries/DisplayEntries'
+import { useParams } from 'react-router-dom'
 
 const testEntryArray = [
   {
@@ -69,10 +70,12 @@ const testEntryArray = [
 
 
 export default function Entries() {
+
+    const { feeling } = useParams();
+
   return (
     <div className='relative top-8'>
       <Navbar />
-
         <DisplayEntries entryArray={testEntryArray} />
 
       
