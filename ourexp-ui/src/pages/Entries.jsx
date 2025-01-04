@@ -57,7 +57,6 @@ const testArray = [
     }
 ]
 
-
 export default function Entries() {
 
     const { feelingId } = useParams();
@@ -72,7 +71,6 @@ export default function Entries() {
     return (
         <div className='relative top-8'>
         <Navbar />
-            <p>{feelingId}</p>
             <DisplayEntries entryArray={testArray} />
         </div>
     )
