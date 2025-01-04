@@ -7,7 +7,7 @@ async function getEntriesByFeeling(id) {
         return result.data;
     } catch (error) {
         console.error('Error fetching entries by feeling:', error);
-        return {};
+        return [];
     }
     
 }

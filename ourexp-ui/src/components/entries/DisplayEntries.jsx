@@ -3,7 +3,7 @@ import Entry from './Entry';
 
 export default function DisplayEntries({entryArray}) {
 
-  let entries = entryArray.map(entry => <Entry entryObject={entry}/>);
+  let entries = entryArray.map(entry => <Entry entryObject={entry} key={entry.id}/>);
   return (
     <div>{entries}</div>
   )
