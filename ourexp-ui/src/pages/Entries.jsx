@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar'
 import DisplayEntries from '../components/entries/DisplayEntries'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getEntriesByFeeling } from '../services/getEntriesByFeeling'
+import axios from 'axios'
+// import { getEntriesByFeeling } from '../services/getEntriesByFeeling'
 
 const testArray = [
     {
@@ -57,14 +58,20 @@ const testArray = [
     }
 ]
 
+
 export default function Entries() {
 
     const { feelingId } = useParams();
     const [entries, setEntries] = useState();
 
+    async function getEntries(id) {
+        const result = await axios.get(`http://localhost:8080/entry/feeling/${id}`);
+        setEntries(result.data);
+    }
+    
 
     useEffect(() => {
-        setEntries(getEntriesByFeeling(feelingId));
+        getEntries(feelingId);
     },[]);
 
 
