@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { submitEntry } from '../../services/submitEntry'
 
 const happyFeelings = [{"id": 1, "name": "Playful"},{"id": 2, "name": "Content"},{"id": 3,"name": "Interested"},{"id": 4,"name": "Proud"},
@@ -35,11 +35,14 @@ export default function FeelingSelector({category}) {
   const [selectedFeeling, setSelectedFeeling] = useState(); // user-selected feeling
   const [entry, setEntry] = useState({title: "", text: ""}); // entry object
 
+  const navigate = useNavigate(); // navigation hook
+
   const{title, text} = entry;
 
-  // sends current state to backend in JSON format on submit
+  // sends current state to backend and redirects to entries with given feeling
   const handleSubmit = async () => {
     submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
+    return navigate(`/entries/${selectedFeeling.id}`);
   }
 
   // updates entry on input change
