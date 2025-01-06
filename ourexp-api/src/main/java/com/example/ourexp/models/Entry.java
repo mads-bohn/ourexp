@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 public class Entry extends AbstractEntity {
 
+    @Column(columnDefinition = "TEXT")
     private String text;
     private String title;
     private LocalDateTime time = LocalDateTime.now();
