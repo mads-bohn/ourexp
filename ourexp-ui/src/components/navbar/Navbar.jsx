@@ -1,8 +1,16 @@
 import React from 'react'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Subnav from './Subnav'
 
 export default function Navbar() {
+
+  const [isOpen, setIsOpen] = useState(false); //boolean state of subnav menu
+
+  // toggles state of subnav menu
+  function toggleOpen() {
+    setIsOpen(!isOpen);
+  }
 
   return (
     <div className='fixed top-0 left-0 w-full'>
@@ -19,7 +27,7 @@ export default function Navbar() {
                 isActive ? 'p-6 bg-slate-400 text-white hover:bg-slate-300 hover:text-white active:bg-slate-400' : 'p-6 hover:bg-slate-300 active:bg-slate-400'}>
               Write
             </NavLink>
-            <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400'>
+            <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen}>
               Browse
             </NavLink>  
             <NavLink 
@@ -30,7 +38,10 @@ export default function Navbar() {
               </NavLink>
           </div>        
         </div>
-        <Subnav />  
+        <div className={isOpen ? null : 'hidden'}>
+          <Subnav />
+        </div>
+          
     </div>
   )
 }
