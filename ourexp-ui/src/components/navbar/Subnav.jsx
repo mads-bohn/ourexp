@@ -28,13 +28,32 @@ const happyFeelings = [{"id": 1, "name": "Playful"},{"id": 2, "name": "Content"}
 export default function Subnav() {
 
   return (
-    <div className='relative p-8 bg-slate-200'>
+    <div className='flex flex-row justify-center relative p-8 bg-slate-200'>
+      <div className='mx-4'>
+        <p>Happy</p>
         <FeelingLinks feelingList={happyFeelings}/>
+      </div>
+      <div className='mx-4'>
+        <p>Sad</p>
         <FeelingLinks feelingList={sadFeelings}/>
+      </div>
+      <div className='mx-4'>
+        <p>Surprised</p>
         <FeelingLinks feelingList={surprisedFeelings}/>
+      </div>
+      <div className='mx-4'>
+        <p>Down</p>
         <FeelingLinks feelingList={downFeelings}/>
+      </div>
+      <div className='mx-4'>
+        <p>Angry</p>
         <FeelingLinks feelingList={angryFeelings}/>
+      </div>
+      <div className='mx-4'>
+        <p>Fearful</p>
         <FeelingLinks feelingList={fearfulFeelings}/>
+      </div>    
+        
     </div>
   )
 }
