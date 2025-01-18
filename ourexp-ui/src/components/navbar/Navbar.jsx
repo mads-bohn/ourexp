@@ -12,6 +12,10 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   }
 
+  function handleOnBlur() {
+    setIsOpen(false);
+  }
+
   return (
     <div className='fixed top-0 left-0 w-full'>
         <div className=' z-10 p-6 bg-slate-200'>
@@ -27,7 +31,7 @@ export default function Navbar() {
                 isActive ? 'p-6 bg-slate-400 text-white hover:bg-slate-300 hover:text-white active:bg-slate-400' : 'p-6 hover:bg-slate-300 active:bg-slate-400'}>
               Write
             </NavLink>
-            <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen}>
+            <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen} onBlur={handleOnBlur}>
               Browse
             </NavLink>  
             <NavLink 
@@ -41,7 +45,6 @@ export default function Navbar() {
         <div className={isOpen ? null : 'hidden'}>
           <Subnav />
         </div>
-          
     </div>
   )
 }
