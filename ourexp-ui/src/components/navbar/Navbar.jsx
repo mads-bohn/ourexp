@@ -31,7 +31,7 @@ export default function Navbar() {
                 isActive ? 'p-6 bg-slate-400 text-white hover:bg-slate-300 hover:text-white active:bg-slate-400' : 'p-6 hover:bg-slate-300 active:bg-slate-400'}>
               Write
             </NavLink>
-            <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen} onBlur={handleOnBlur}>
+            <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen} >
               Browse
             </NavLink>  
             <NavLink 
@@ -42,7 +42,7 @@ export default function Navbar() {
               </NavLink>
           </div>        
         </div>
-        <div className={isOpen ? null : 'hidden'}>
+        <div className={isOpen ? null : 'hidden'} onBlur={handleOnBlur}>
           <Subnav />
         </div>
     </div>
