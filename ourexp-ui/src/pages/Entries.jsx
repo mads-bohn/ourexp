@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/navbar/Navbar'
 import DisplayEntries from '../components/entries/DisplayEntries'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
