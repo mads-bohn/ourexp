@@ -7,7 +7,6 @@ export default function Home() {
     <div>
       <Navbar />
       <p>Hello, homepage!</p>
-      <DeleteButton />
     </div>
   )
 }
