@@ -10,7 +10,7 @@ export default function DeleteButton({id}) {
 
   return (
     <div>
-        <button onClick={handleClick}>Delete</button>
+        <button onClick={handleClick} className='text-red-600 font-bold hover:border-red-600'>Delete</button>
     </div>
   )
 }
