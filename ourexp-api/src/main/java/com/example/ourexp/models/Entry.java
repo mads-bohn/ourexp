@@ -1,6 +1,10 @@
 package com.example.ourexp.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,8 +13,13 @@ import java.util.List;
 @Entity
 public class Entry extends AbstractEntity {
 
+    @NotBlank(message = "Entry text is required")
     @Column(columnDefinition = "TEXT")
+    @Size(max = 65535, message = "Entry must be less than 65535 characters long")
     private String text;
+
+    @NotBlank(message = "Entry title is required")
+    @Size(min = 2, max = 40, message = "Title must be 2-40 characters long")
     private String title;
     private LocalDateTime time = LocalDateTime.now();
 

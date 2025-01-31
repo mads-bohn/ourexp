@@ -4,15 +4,21 @@ import com.example.ourexp.data.EntryRepository;
 import com.example.ourexp.data.FeelingRepository;
 import com.example.ourexp.models.Entry;
 import com.example.ourexp.models.Feeling;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/entry")
 @CrossOrigin(origins = "http://localhost:5173")
 public class EntryController {
@@ -24,7 +30,7 @@ public class EntryController {
 
     // adds new entries via POST request to localhost:8080/entry
     @PostMapping
-    public ResponseEntity<Entry> addEntry(@RequestBody Entry entry) {
+    public ResponseEntity<Entry> addEntry(@Valid @RequestBody Entry entry) {
         Entry savedEntry = entryRepository.save(entry);
         return ResponseEntity.ok(savedEntry);
     }
@@ -78,5 +84,19 @@ public class EntryController {
         }
         entryRepository.deleteById(id);
         return ResponseEntity.ok("Entry deleted");
+    }
+
+    // handles validation exceptions by returning error messages specified in model annotations
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
     }
 }
