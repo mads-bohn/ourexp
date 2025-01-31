@@ -1,6 +1,7 @@
 package com.example.ourexp.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,8 +10,11 @@ import java.util.List;
 @Entity
 public class Entry extends AbstractEntity {
 
+    @NotBlank(message = "Entry text is required")
     @Column(columnDefinition = "TEXT")
     private String text;
+
+    @NotBlank(message = "Entry title is required")
     private String title;
     private LocalDateTime time = LocalDateTime.now();
 

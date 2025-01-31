@@ -4,6 +4,7 @@ import com.example.ourexp.data.EntryRepository;
 import com.example.ourexp.data.FeelingRepository;
 import com.example.ourexp.models.Entry;
 import com.example.ourexp.models.Feeling;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class EntryController {
 
     // adds new entries via POST request to localhost:8080/entry
     @PostMapping
-    public ResponseEntity<Entry> addEntry(@RequestBody Entry entry) {
+    public ResponseEntity<Entry> addEntry(@Valid @RequestBody Entry entry) {
         Entry savedEntry = entryRepository.save(entry);
         return ResponseEntity.ok(savedEntry);
     }
