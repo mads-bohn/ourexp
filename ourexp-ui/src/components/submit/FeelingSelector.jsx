@@ -62,7 +62,7 @@ export default function FeelingSelector({category}) {
     const feelingButtons = 
     feelingsList.map(feeling =>
       <button 
-        className='bg-indigo-800 text-white m-1'
+      className= {selectedFeeling == feeling ? 'bg-indigo-500 text-white m-1' : 'bg-indigo-800 text-white m-1'}
         onClick={() => {
           setSelectedFeeling(feeling);
         }}
