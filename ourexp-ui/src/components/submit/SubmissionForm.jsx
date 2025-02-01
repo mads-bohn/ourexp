@@ -9,7 +9,7 @@ export default function SubmissionForm({categories}) {
     // maps categories passed as prop into list of buttons that set selectedCategory state on click
     const categoryButtons = categories.map(category =>
         <button 
-            className='bg-indigo-800 text-white m-1'
+            className= {selectedCategory == category ? 'bg-indigo-500 text-white m-1' : 'bg-indigo-800 text-white m-1'}
             onClick={() => {
                 setSelectedCategory(category);
             }}
