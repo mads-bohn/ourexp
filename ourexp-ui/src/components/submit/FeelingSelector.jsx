@@ -28,6 +28,27 @@ export default function FeelingSelector({category}) {
 
   const{title, text} = entry;
 
+  // checks if entry is valid, returns object with error messages
+  const validateEntry = (data) => {
+    const errors = {};
+
+    // title validation
+    if (!data.title) {
+      errors.title = 'Title is required';
+    } else if (data.title.length < 2 || data.title.length > 2) {
+      errors.title = 'Title must be 2-40 characters long.';
+    }
+
+    // entry validation
+    if (!data.text) {
+      errors.text = 'Entry text is required';
+    } else if (data.text.length > 65535) {
+      errors.text = 'Entry must be less than 65535 characters long.';
+    }
+
+    return errors;
+  }
+
   // sends current state to backend and redirects to entries with given feeling
   const handleSubmit = async () => {
     submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
