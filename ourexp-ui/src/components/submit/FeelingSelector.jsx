@@ -36,14 +36,14 @@ export default function FeelingSelector({category}) {
 
     // title validation
     if (!data.title) {
-      errors.title = 'Title is required';
+      errors.title = 'Title is required.';
     } else if (data.title.length < 2 || data.title.length > 2) {
       errors.title = 'Title must be 2-40 characters long.';
     }
 
     // entry validation
     if (!data.text) {
-      errors.text = 'Entry text is required';
+      errors.text = 'Entry text is required.';
     } else if (data.text.length > 65535) {
       errors.text = 'Entry must be less than 65535 characters long.';
     }
@@ -117,8 +117,10 @@ else if (!selectedFeeling) {
       <div className='divide-y-2 border-solid border-2 border-slate-200'>
         <input type='text' id='title' name='title' value={title} size={75} 
         onChange={(e)=>handleChange(e)}/>
+        <ErrorMessage message={errors.title} />
         <textarea id='text' name='text' rows={9} cols={75} value={text}
         onChange={(e)=>handleChange(e)}></textarea>
+        <ErrorMessage message={errors.text} />
       </div>
       
       <br />
