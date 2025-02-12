@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { submitEntry } from '../../services/submitEntry';
+import ErrorMessage from './ErrorMessage';
 import happy from '../../assets/feelings/happy.json'
 import sad from '../../assets/feelings/sad.json'
 import surprised from '../../assets/feelings/surprised.json'
@@ -23,6 +24,7 @@ export default function FeelingSelector({category}) {
   const [feelingsList, setFeelingsList] = useState([]);   // list of feelings to display
   const [selectedFeeling, setSelectedFeeling] = useState(); // user-selected feeling
   const [entry, setEntry] = useState({title: "", text: ""}); // entry object
+  const [errors, setErrors] = useState({}); // errors object
 
   const navigate = useNavigate(); // navigation hook
 
@@ -51,8 +53,11 @@ export default function FeelingSelector({category}) {
 
   // sends current state to backend and redirects to entries with given feeling
   const handleSubmit = async () => {
-    submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
-    return navigate(`/entries/${selectedFeeling.id}`);
+    setErrors(validateEntry({title: entry.title, text: entry.text}));
+    if (!errors) {
+      submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
+      return navigate(`/entries/${selectedFeeling.id}`);
+    }
   }
 
   // updates entry on input change
