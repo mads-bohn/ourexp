@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { submitEntry } from '../../services/submitEntry';
+import ErrorMessage from './ErrorMessage';
 import happy from '../../assets/feelings/happy.json'
 import sad from '../../assets/feelings/sad.json'
 import surprised from '../../assets/feelings/surprised.json'
@@ -23,15 +24,40 @@ export default function FeelingSelector({category}) {
   const [feelingsList, setFeelingsList] = useState([]);   // list of feelings to display
   const [selectedFeeling, setSelectedFeeling] = useState(); // user-selected feeling
   const [entry, setEntry] = useState({title: "", text: ""}); // entry object
+  const [errors, setErrors] = useState({}); // errors object
 
   const navigate = useNavigate(); // navigation hook
 
   const{title, text} = entry;
 
+  // checks if entry is valid, returns object with error messages
+  const validateEntry = (data) => {
+    const errors = {};
+
+    // title validation
+    if (!data.title) {
+      errors.title = 'Title is required.';
+    } else if (data.title.length < 2 || data.title.length > 2) {
+      errors.title = 'Title must be 2-40 characters long.';
+    }
+
+    // entry validation
+    if (!data.text) {
+      errors.text = 'Entry text is required.';
+    } else if (data.text.length > 65535) {
+      errors.text = 'Entry must be less than 65535 characters long.';
+    }
+
+    return errors;
+  }
+
   // sends current state to backend and redirects to entries with given feeling
   const handleSubmit = async () => {
-    submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
-    return navigate(`/entries/${selectedFeeling.id}`);
+    setErrors(validateEntry({title: entry.title, text: entry.text}));
+    if (!errors) {
+      submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
+      return navigate(`/entries/${selectedFeeling.id}`);
+    }
   }
 
   // updates entry on input change
@@ -91,8 +117,10 @@ else if (!selectedFeeling) {
       <div className='divide-y-2 border-solid border-2 border-slate-200'>
         <input type='text' id='title' name='title' value={title} size={75} 
         onChange={(e)=>handleChange(e)}/>
+        <ErrorMessage message={errors.title} />
         <textarea id='text' name='text' rows={9} cols={75} value={text}
         onChange={(e)=>handleChange(e)}></textarea>
+        <ErrorMessage message={errors.text} />
       </div>
       
       <br />
