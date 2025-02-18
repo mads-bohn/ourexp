@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, createBrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Entries from './pages/Entries';
 import Home from './pages/Home';
 import Submit from './pages/Submit';
@@ -7,16 +7,30 @@ import Account from './pages/Account';
 
 function App() {
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/entries/:feelingId",
+      element: <Entries />,
+    },
+    {
+      path: "/submit",
+      element: <Submit />,
+    },
+    {
+      path: "/account",
+      element: <Account />,
+    }
+  ]);
+
+
   return (
-      <Routes>
-        <Route path='/'>
-          <Route index element={<Home />} />
-          <Route path='entries/:feelingId' element={<Entries />} />
-          <Route path='submit' element={<Submit />} />
-          <Route path='account' element={<Account />} />
-        </Route>
-      </Routes>
-    
+    <>
+      <RouterProvider router={router} />
+    </>
   )
 }
 
