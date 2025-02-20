@@ -2,12 +2,13 @@ import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import DisplayEntries from '../components/entries/DisplayEntries'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
-// import { getEntriesByFeeling } from '../services/getEntriesByFeeling'
 
 
 export default function Entries() {
+
+    
 
     const { feelingId } = useParams();
     const [entries, setEntries] = useState([
@@ -36,9 +37,12 @@ export default function Entries() {
         }
     }
 
+    const location = useLocation(); // gets current url
+
+    // fetches entries on url change
     useEffect(() => {
         fetchEntries(feelingId);
-    },[]);
+    },[location.pathname]);
 
 
     return (
