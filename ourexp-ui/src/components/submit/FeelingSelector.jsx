@@ -100,14 +100,14 @@ if (!category) {
 }
 else if (!selectedFeeling) {
   return (
-    <div className='my-6'>
+    <div className='my-6 -z-10'>
       <p className='text-xl text-left my-4'>Dig a little deeper.</p>
       {feelingButtons}
     </div>
   )
 } else {
   return (
-    <div className='relative'>
+    <div className='relative -z-10'>
       <div className='my-6'>
         <p className='text-xl text-left my-4'>Dig a little deeper.</p>
         {feelingButtons}
