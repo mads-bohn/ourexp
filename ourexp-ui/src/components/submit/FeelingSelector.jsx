@@ -54,7 +54,7 @@ export default function FeelingSelector({category}) {
   // sends current state to backend and redirects to entries with given feeling
   const handleSubmit = async () => {
     setErrors(validateEntry({title: entry.title, text: entry.text}));
-    if (!errors) {
+    if (Object.keys(errors).length === 0) {
       submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
       return navigate(`/entries/${selectedFeeling.id}`);
     }
