@@ -17,8 +17,8 @@ export default function Navbar() {
   }
 
   return (
-    <div className='fixed top-0 left-0 w-full'>
-        <div className=' z-10 p-6 bg-slate-200'>
+    <div className='z-30 fixed top-0 left-0 w-full'>
+        <div className='p-6 bg-slate-200'>
           <div className='mx-auto'>
             <NavLink 
               to="/" 

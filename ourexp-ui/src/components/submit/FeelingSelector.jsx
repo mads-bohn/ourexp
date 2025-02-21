@@ -37,7 +37,7 @@ export default function FeelingSelector({category}) {
     // title validation
     if (!data.title) {
       errors.title = 'Title is required.';
-    } else if (data.title.length < 2 || data.title.length > 2) {
+    } else if (data.title.length < 2 || data.title.length > 40) {
       errors.title = 'Title must be 2-40 characters long.';
     }
 
@@ -100,14 +100,14 @@ if (!category) {
 }
 else if (!selectedFeeling) {
   return (
-    <div className='my-6 -z-10'>
+    <div className='my-6 z-0'>
       <p className='text-xl text-left my-4'>Dig a little deeper.</p>
       {feelingButtons}
     </div>
   )
 } else {
   return (
-    <div className='relative -z-10'>
+    <div className='relative z-0'>
       <div className='my-6'>
         <p className='text-xl text-left my-4'>Dig a little deeper.</p>
         {feelingButtons}
