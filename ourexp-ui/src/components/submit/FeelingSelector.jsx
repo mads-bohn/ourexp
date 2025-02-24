@@ -32,29 +32,29 @@ export default function FeelingSelector({category}) {
 
   // checks if entry is valid, returns object with error messages
   const validateEntry = (data) => {
-    const errors = {};
+    const errorMessages = {};
 
     // title validation
     if (!data.title) {
-      errors.title = 'Title is required.';
-    } else if (data.title.length < 2 || data.title.length > 2) {
-      errors.title = 'Title must be 2-40 characters long.';
+      errorMessages.title = 'Title is required.';
+    } else if (data.title.length < 2 || data.title.length > 40) {
+      errorMessages.title = 'Title must be 2-40 characters long.';
     }
 
     // entry validation
     if (!data.text) {
-      errors.text = 'Entry text is required.';
+      errorMessages.text = 'Entry text is required.';
     } else if (data.text.length > 65535) {
-      errors.text = 'Entry must be less than 65535 characters long.';
+      errorMessages.text = 'Entry must be less than 65535 characters long.';
     }
 
-    return errors;
+    return errorMessages;
   }
 
   // sends current state to backend and redirects to entries with given feeling
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setErrors(validateEntry({title: entry.title, text: entry.text}));
-    if (!errors) {
+    if (Object.keys(errors).length === 0) {
       submitEntry(entry.title, entry.text, [{id: selectedFeeling.id}]);
       return navigate(`/entries/${selectedFeeling.id}`);
     }
@@ -100,14 +100,14 @@ if (!category) {
 }
 else if (!selectedFeeling) {
   return (
-    <div className='my-6 -z-10'>
+    <div className='my-6 z-0'>
       <p className='text-xl text-left my-4'>Dig a little deeper.</p>
       {feelingButtons}
     </div>
   )
 } else {
   return (
-    <div className='relative -z-10'>
+    <div className='relative z-0'>
       <div className='my-6'>
         <p className='text-xl text-left my-4'>Dig a little deeper.</p>
         {feelingButtons}
