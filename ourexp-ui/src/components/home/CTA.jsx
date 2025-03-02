@@ -6,7 +6,7 @@ export default function CTA() {
     <div>
         <Link 
             to='/submit'
-            className='p-4 bg-indigo-800 text-white rounded-lg hover:text-white hover:bg-indigo-600'>
+            className='p-4 bg-indigo-800 text-white text-lg rounded-lg hover:text-white hover:bg-indigo-600'>
                 Write an Entry
         </Link>
     </div>
