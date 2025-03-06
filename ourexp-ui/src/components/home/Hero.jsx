@@ -4,10 +4,10 @@ import CTA from './CTA'
 export default function Hero() {
   return (
     <div>
-        <img src='src/assets/home/hero-background.png' 
+        <img src='src/assets/home/hero-background-full.jpg' 
             alt='Pen and notebook' 
-            className='w-[45%] absolute right-0 top-6' />
-        <div className='relative top-[150px] text-left'>
+            className='w-full absolute right-0 top-6' />
+        <div className='relative top-[130px] text-left'>
           <div className='text-3xl font-semibold'>
             <h1 className='my-1'>Our Experience. <br /> Everybody's Journal.</h1>        
           </div>   
