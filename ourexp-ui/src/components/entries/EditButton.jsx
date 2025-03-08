@@ -2,6 +2,8 @@ import React from 'react'
 import ErrorMessage from '../submit/ErrorMessage';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { validateEntry } from '../../services/validateEntry';
+import { editEntry } from '../../services/editEntry';
 
 export default function EditButton({entry}) {
 
@@ -21,21 +23,25 @@ export default function EditButton({entry}) {
         setNewEntry({...entry,[e.target.name]:e.target.value})
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = async (event) => {
         const newErrors = validateEntry({title: newEntry.title, text: newEntry.text});
         setErrors(newErrors);
     
         if (Object.keys(newErrors).length === 0) {
-          editEntry(entry.id, newEntry.title, newEntry.text, entry.feelings);
-          return navigate(`/entries/${entry.feelings[0].id}`);
+            try {
+                const response = await editEntry(entry.id, newEntry.title, newEntry.text, entry.feelings);
+                window.location.reload(false);
+            } catch (error) {
+                console.error('Error editing post:', error);
+            }
+          
         }
       }
   
     return (
         <div>
             <div className={isEditVisible ? 'w-full h-full fixed top-0 left-0 bg-slate-600 opacity-50' : 'hidden'}></div>
-            <div className={isEditVisible ? 'fixed top-[160px] p-5 -ml-5 bg-white border-2 border-slate-300 rounded-xl' : 'hidden'}>
+            <div className={isEditVisible ? 'fixed top-[160px] p-5 -ml-[80px] bg-white border-2 border-slate-300 rounded-xl' : 'hidden'}>
                 <div className='divide-y-2 border-solid border-2 border-slate-200'>
                     <input type='text' id='title' name='title' value={newEntry.title} size={69} onChange={(e)=>handleChange(e)}/>
                     <ErrorMessage message={errors.title} />

@@ -11,6 +11,7 @@ export default function Entry({entryObject}) {
         </div>
         <p className='my-3 text-left'>{entryObject.text}</p>
         <DisplayFeelings feelingsArray={entryObject.feelings} />
+        <EditButton entry={entryObject}/>
     </div>
   )
 }
