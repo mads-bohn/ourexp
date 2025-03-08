@@ -39,7 +39,7 @@ export default function EditForm({entry}) {
       </div>
       
       <br />
-      <button className='bg-indigo-800 text-white my-4 absolute right-0'
+      <button className='bg-indigo-800 text-white my-4 inline'
               onClick={handleSubmit}>Submit</button>
     </div>
   )
