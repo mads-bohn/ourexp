@@ -34,18 +34,20 @@ export default function EditButton({entry}) {
   
     return (
         <div>
-            <div className={isEditVisible ? null : 'hidden'}>
+            <div className={isEditVisible ? 'w-full h-full fixed top-0 left-0 bg-slate-600 opacity-50' : 'hidden'}></div>
+            <div className={isEditVisible ? 'fixed top-[160px] p-5 -ml-5 bg-white border-2 border-slate-300 rounded-xl' : 'hidden'}>
                 <div className='divide-y-2 border-solid border-2 border-slate-200'>
-                    <input type='text' id='title' name='title' value={newEntry.title} size={75} onChange={(e)=>handleChange(e)}/>
+                    <input type='text' id='title' name='title' value={newEntry.title} size={69} onChange={(e)=>handleChange(e)}/>
                     <ErrorMessage message={errors.title} />
-                    <textarea id='text' name='text' rows={9} cols={75} value={newEntry.text} onChange={(e)=>handleChange(e)}></textarea>
+                    <textarea id='text' name='text' rows={9} cols={69} value={newEntry.text} onChange={(e)=>handleChange(e)}></textarea>
                     <ErrorMessage message={errors.text} />
                 </div>
                 <br />
-                <button className='bg-indigo-800 text-white my-4 inline' onClick={handleSubmit}>Submit</button>
-                <button onClick={toggleModal} className='m-2 inline'>Cancel</button> 
+                <button onClick={toggleModal} className='relative right-[190px] mx-8'>Close</button> 
+                <button className='relative left-[190px] mx-8 bg-indigo-800 text-white' onClick={handleSubmit}>Submit</button>
+                
             </div>
-            <button onClick={toggleModal} className='text-slate-600 font-bold hover:border-slate-600'>Edit</button>
+            <button onClick={toggleModal} className='text-slate-600 mt-3 font-bold hover:border-slate-600'>Edit</button>
         </div>
   )
 }
