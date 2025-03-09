@@ -7,8 +7,13 @@ export default function DeleteButton({id}) {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleDelete = async () => {
-        deleteEntry(id);
-        // reload page?
+        try {
+            await deleteEntry(id);
+            window.location.reload(false);
+        } catch (error) {
+            console.error('Error deleting post:', error);
+        }
+        
     }
 
     const toggleModal = () => {
