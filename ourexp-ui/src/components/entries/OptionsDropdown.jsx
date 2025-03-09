@@ -13,8 +13,8 @@ export default function OptionsDropdown({entry}) {
 
   return (
     <div>
-        <button onClick={toggleDropdown}>...</button>
-        <div className={isVisible ? null : 'hidden'}>
+        <button onClick={toggleDropdown} className='ml-2 py-0 px-2 bg-slate-300 text-xl'>...</button>
+        <div className={isVisible ? 'fixed p-2 bg-white shadow-lg' : 'hidden'}>
             <EditButton entry={entry} />
             <DeleteButton id={entry.id} />
         </div>

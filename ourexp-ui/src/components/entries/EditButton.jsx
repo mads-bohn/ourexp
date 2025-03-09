@@ -53,7 +53,7 @@ export default function EditButton({entry}) {
                 <button className='relative left-[190px] mx-8 bg-indigo-800 text-white' onClick={handleSubmit}>Submit</button>
                 
             </div>
-            <button onClick={toggleModal} className='text-slate-600 mt-3 font-bold hover:border-slate-600'>Edit</button>
+            <button onClick={toggleModal} className='text-slate-600 p-1 mb-1 w-full font-bold hover:border-slate-600'>Edit</button>
         </div>
   )
 }

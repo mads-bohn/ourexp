@@ -24,7 +24,7 @@ export default function DeleteButton({id}) {
                 <button onClick={toggleModal} className='m-2'>Cancel</button> 
             </div>
         </div>
-        <button onClick={toggleModal} className='text-red-600 font-bold hover:border-red-600'>Delete</button>
+        <button onClick={toggleModal} className='p-1 text-red-600 font-bold hover:border-red-600'>Delete</button>
     </div>
   )
 }
