@@ -1,6 +1,7 @@
 import React from 'react'
 import DisplayFeelings from './DisplayFeelings'
 import EditButton from './EditButton'
+import DeleteButton from './DeleteButton'
 
 export default function Entry({entryObject}) {
   return (
@@ -11,7 +12,8 @@ export default function Entry({entryObject}) {
         </div>
         <p className='my-3 text-left'>{entryObject.text}</p>
         <DisplayFeelings feelingsArray={entryObject.feelings} />
-        {/* <EditButton entry={entryObject}/> */}
+        {/* <EditButton entry={entryObject}/>
+        <DeleteButton id={entryObject.id}/> */}
     </div>
   )
 }
