@@ -41,7 +41,7 @@ export default function EditButton({entry}) {
     return (
         <div>
             <div className={isEditVisible ? 'w-full h-full fixed top-0 left-0 bg-slate-600 opacity-50' : 'hidden'}></div>
-            <div className={isEditVisible ? 'fixed top-[160px] p-5 -ml-[80px] bg-white border-2 border-slate-300 rounded-xl' : 'hidden'}>
+            <div className={isEditVisible ? 'fixed top-1/2 left-1/2 mt-[-182px] ml-[-328px] p-5 bg-white border-2 border-slate-300 rounded-xl' : 'hidden'}>
                 <div className='divide-y-2 border-solid border-2 border-slate-200'>
                     <input type='text' id='title' name='title' value={newEntry.title} size={69} onChange={(e)=>handleChange(e)}/>
                     <ErrorMessage message={errors.title} />
