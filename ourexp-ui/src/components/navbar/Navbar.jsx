@@ -34,12 +34,12 @@ export default function Navbar() {
             <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen} >
               Browse
             </NavLink>  
-            <NavLink 
+            {/* <NavLink 
                 to="/account" 
                 className={({isActive}) => 
                   isActive ? 'p-6 bg-slate-400 text-white hover:bg-slate-300 hover:text-white ' : 'p-6 hover:bg-slate-300 active:bg-slate-400'}>
                 Account
-              </NavLink>
+              </NavLink> */}
           </div>        
         </div>
         <div className={isOpen ? null : 'hidden'} onBlur={handleOnBlur}>

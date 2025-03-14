@@ -5,6 +5,6 @@ export default function DisplayEntries({entryArray}) {
 
   let entries = entryArray.map(entry => <Entry entryObject={entry} key={entry.id}/>);
   return (
-    <div>{entries}</div>
+    <div className='flex flex-col-reverse'>{entries}</div>
   )
 }
