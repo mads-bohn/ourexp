@@ -10,6 +10,7 @@ import down from '../../assets/feelings/down.json'
 import disgusted from '../../assets/feelings/disgusted.json'
 import angry from '../../assets/feelings/angry.json'
 import fearful from '../../assets/feelings/fearful.json'
+import Button from '../buttons/Button';
 
 const happyFeelings = happy;
 const sadFeelings = sad;
@@ -127,8 +128,9 @@ else if (!selectedFeeling) {
       </div>
       
       <br />
-      <button className='bg-indigo-800 text-white my-4 absolute right-0'
-              onClick={handleSubmit}>Submit</button>
+      <div className='absolute right-0'>
+        <Button title={'Submit'} onClick={handleSubmit} />
+      </div>
     </div>
   )
 }
