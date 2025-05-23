@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Subnav from './Subnav'
+import LoginButton from './LoginButton'
 
 export default function Navbar() {
 
@@ -34,6 +35,7 @@ export default function Navbar() {
             <NavLink className='p-6 hover:bg-slate-300 active:bg-slate-400' onClick={toggleOpen} >
               Browse
             </NavLink>  
+            <LoginButton />
             {/* <NavLink 
                 to="/account" 
                 className={({isActive}) => 
