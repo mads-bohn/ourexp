@@ -19,6 +19,7 @@ export default function Navbar() {
 
   return (
     <div className='z-30 fixed top-0 left-0 w-full'>
+      <script src={"https://accounts.google.com/gsi/client"} async={true}></script>
         <div className='p-6 bg-slate-200'>
           <div className='mx-auto'>
             <NavLink 
